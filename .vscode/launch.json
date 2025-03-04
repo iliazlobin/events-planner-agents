@@ -1,0 +1,101 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "_root: python current-file",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${file}",
+      // "cwd": "${workspaceFolder}",
+      "cwd": "/home/izlobin/wd/events-planner-agents",
+      "envFile": "/home/izlobin/wd/events-planner-agents/.env",
+      "env": {
+        "ENV": "local",
+        "PYTHONPATH": "/home/izlobin/wd/events-planner-agents/"
+      },
+      "python": "/home/izlobin/miniconda3/envs/python-3.11/bin/python",
+      "justMyCode": false
+    },
+    {
+      "name": "_root: test current-file/selected-test",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "sst shell -- vitest run ${file} --testNamePattern='${selectedText}'",
+      "cwd": "${workspaceFolder}",
+      "envFile": "${workspaceFolder}/.env",
+      "env": {
+        // "EVENTS_INGEST_TOKEN": "asdfasdf"
+      },
+      "sourceMaps": true,
+      "skipFiles": ["<node_internals>/**", "node_modules/**"]
+    },
+    {
+      "name": "_root: test current-file",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "sst shell -- vitest run ${file}",
+      "cwd": "${workspaceFolder}",
+      "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "name": "_root: tsx current-file",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "sst shell -- tsx -r tsconfig-paths/register ${file}",
+      "cwd": "${workspaceFolder}",
+      "envFile": "${workspaceFolder}/.env"
+    },
+    // {
+    //   "name": "sst/ExtractFeaturesFunction-src: run test.py",
+    //   "type": "debugpy",
+    //   "request": "launch",
+    //   "program": "${workspaceFolder}/.sst/artifacts/ExtractFeaturesFunction-src/functions/test.py",
+    //   "cwd": "${workspaceFolder}/.sst/artifacts/ExtractFeaturesFunction-src",
+    //   "envFile": "${workspaceFolder}/.env",
+    //   "env": {
+    //     "ENV": "local",
+    //     "PYTHONPATH": "${workspaceFolder}/.sst/artifacts/ExtractFeaturesFunction-src"
+    //   },
+    //   "python": "/home/izlobin/miniconda3/envs/pytorch-3.10/bin/python",
+    //   "justMyCode": false
+    // },
+    {
+      "name": "root: sst dev",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "sst unlock && sst dev --print-logs",
+      // "command": "sst dev",
+      // "command": "sst dev --mode=basic",
+      "cwd": "${workspaceFolder}",
+      "envFile": "${workspaceFolder}/.env"
+      // "outFiles": ["/home/izlobin/wd/events-planner-sst/.sst/artifacts/ExtractFeaturesFunction-dev/**/*.mjs"]
+    }
+    // {
+    //   "name": "sst dev",
+    //   "type": "node",
+    //   "request": "launch",
+    //   "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/sst",
+    //   "runtimeArgs": ["dev"],
+    //   "cwd": "${workspaceFolder}",
+    //   "envFile": "${workspaceFolder}/.env",
+    //   "console": "integratedTerminal"
+    //   // "skipFiles": ["<node_internals>/**"],
+    //   // "outFiles": ["${workspaceFolder}/.sst/artifacts/**"],
+    //   // "resolveSourceMapLocations ": ["${workspaceFolder}/.sst/artifacts/**"]
+    // },
+    // {
+    //   "name": "test: current-file/selected-test",
+    //   "type": "node",
+    //   "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/sst",
+    //   "runtimeArgs": ["shell", "--", "vitest", "run", "${file}", "--testNamePattern='${selectedText}'"],
+    //   "request": "launch",
+    //   "cwd": "${workspaceFolder}",
+    //   "envFile": "${workspaceFolder}/.env",
+    //   "console": "integratedTerminal"
+    //   // "console": "internalConsole"
+    // },
+  ]
+}

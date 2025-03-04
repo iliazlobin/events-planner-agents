@@ -1,0 +1,50 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "_root: run current-file",
+      "type": "shell",
+      "command": ". .env && sst shell -- tsx -r tsconfig-paths/register ${file}",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "presentation": { "reveal": "never", "focus": false, "panel": "shared", "group": "root" }
+    },
+    {
+      "label": "_root: test current-file",
+      "type": "shell",
+      "command": ". .env && sst shell -- vitest run ${file}",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "presentation": { "reveal": "never", "focus": false, "panel": "shared", "group": "root" }
+    },
+    {
+      "label": "_root: test current-file/selected-test",
+      "type": "shell",
+      "command": ". .env && sst shell -- vitest run ${file} --testNamePattern='${selectedText}'",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "presentation": { "reveal": "never", "focus": false, "panel": "shared", "group": "root" }
+    },
+    {
+      "label": "apify-reports",
+      "type": "shell",
+      "command": ". .env && sst shell -- vitest run test/apify-reports.test.ts",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "presentation": { "reveal": "never", "focus": false, "panel": "shared", "group": "apify-reports" }
+    },
+    {
+      "label": "opensearch-generate-event",
+      "type": "shell",
+      "command": "tsx -r tsconfig-paths/register tasks/opensearch-generate-event.ts",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "presentation": { "reveal": "never", "focus": false }
+    }
+  ]
+}
